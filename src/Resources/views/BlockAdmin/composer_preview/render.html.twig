@@ -1,0 +1,16 @@
+{% set service = attribute(blockServices, child.type) ?? null %}
+
+<li class="page-composer__container__child"
+    data-block-id="{{ child.id }}"
+    data-parent-block-id="{{ container.id }}"
+    data-block-enabled="{{ child.enabled|default('0') }}"
+    data-block-type="{{ child.type }}"
+>
+    {% if (service) %}
+        {% include '@SonataPage/BlockAdmin/composer_preview/service.html.twig' with { 'service': service } %}
+    {% else %}
+        <div class="bg-danger">
+            {% include '@SonataPage/BlockAdmin/composer_preview/service_not_found.html.twig' with { 'block' : child } %}
+        </div>
+    {% endif %}
+</li>

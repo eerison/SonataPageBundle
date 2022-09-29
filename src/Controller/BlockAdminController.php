@@ -161,7 +161,7 @@ final class BlockAdminController extends CRUDController
         \assert($blockManager instanceof BlockServiceManagerInterface);
         $blockServices = $blockManager->getServicesByContext('sonata_page_bundle', false);
 
-        return $this->renderWithExtraParams('@SonataPage/BlockAdmin/compose_preview.html.twig', [
+        return $this->renderWithExtraParams('@SonataPage/BlockAdmin/composer_preview/render.html.twig', [
             'container' => $container,
             'child' => $existingObject,
             'blockServices' => $blockServices,
